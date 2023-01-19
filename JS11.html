@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> JAVASCRIPT Form con confirmacion </title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </head>
+    <body>
+        <div style="width: 90%; height: fit-content; background-color:royalblue;">
+            <h1> Confirmacion de envío y reset </h1>
+            <form id="miform">
+                <label for="nombre"> Nombre: </label><br />
+                <input type="text" id="nombre" name="Nombre" value=""><br /><br />
+                <label for="apellido"> Apellido </label><br />
+                <input type="text" id="apellido" name="Apellido" value=""><br />
+            </form>
+                <br /><br /><br />
+                <button id="enviar"> Enviar </button>
+                <button id="blanquear"> Blanquear </button>
+            
+        </div>
+        <script type="text/javascript">
+            document.getElementById("miform").method="get";
+            document.getElementById("miform").action="./RespuestasFormulario.html";
+            document.getElementById("enviar").onclick=function(){
+                var confirmacion = confirm("Está seguro de enviar?");
+                if(confirmacion == true){    
+                    document.getElementById("miform").submit();
+                }
+            }
+            document.getElementById("blanquear").onclick=function(){
+                document.getElementById("miform").reset();
+            }
+
+        </script>
+    </body>	
+</html>

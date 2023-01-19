@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> JAVASCRIPT Creación de objetos </title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </head>
+    <style>
+        div.contenedor{
+            width: 60%;
+            height: 300px;
+            overflow: auto;
+            margin-top: 11%;
+            margin-left: 18%;
+            background-color: cornflowerblue;
+        }
+        div.objetodinamico{
+            width: 60%;
+            height: 60px;
+            border: solid;
+            margin: 5px;
+            background-color: tomato;
+            box-sizing: border-box;
+            padding-top: 10px;
+            padding-left: 10px;
+            font-weight: bold;
+            font-size: x-large;
+        }
+        button{
+            background-color: aqua;
+            border: solid;
+            margin: 5px;
+        }
+    </style>
+    <body>
+        <button id="crear"> Crear </button>
+        <button id="limpiar"> Limpiar </button>
+        <button id="info"> Info </button>
+        <div class="contenedor" id="contenedor"></div>
+    </body>	
+    <script type="text/javascript">
+        document.getElementById("crear").onclick=function(){       
+            var objDiv = document.createElement("div");
+            var textoHTML = "Elemento creado: " + document.getElementById("contenedor").childNodes.length;
+            objDiv.textContent = textoHTML;
+            objDiv.className="objetodinamico";
+            document.getElementById("contenedor").appendChild(objDiv);
+        }
+        document.getElementById("limpiar").onclick=function(){
+            while(document.getElementById("contenedor").childNodes.length > 0){
+                document.getElementById("contenedor").removeChild(document.getElementById("contenedor").childNodes[0]);
+            }
+        }
+        var indice = 0;
+        document.getElementById("info").onclick=function(){
+            alert("Longitud de childNodes: " + document.getElementById("contenedor").childNodes.length);
+            document.getElementById("contenedor").childNodes.forEach(element => {
+                alert("Índice: " + indice + ". Inner HTML :  '" + element.textContent + "'.");
+                indice++;
+            });
+        }
+    </script>
+</html>

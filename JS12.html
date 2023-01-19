@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> JAVASCRIPT Validacion con KeyUp </title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </head>
+    <body>
+        <h1> Ejercicio de validacion de un INPUT </h1>
+        <div style="width: 60%; height: fit-content; margin: auto; background-color:royalblue;">
+        <form id="formulario">
+            <br />
+            <label for="diafecha"> Ingrese el dia del mes: </label><br />
+            <input id="dia" type="number" name="diafecha" value=""><br /><br />
+            <label for="mesfecha"> Ingrese numero de mes: </label><br />
+            <input id="mes" type="number" name="mesfecha" value=""><br /><br /><br />
+            <button type="submit" style="width: 150px; margin-left: 30%;"> Enviar </button>
+            <button type="reset" style="width: 150px;"> Reset </button>
+        </form>
+        </div>
+        <script type="text/javascript">
+            document.getElementById("formulario").method="get";
+            document.getElementById("formulario").action="./RespuestasFormulario.html";
+            document.getElementById("dia").onkeyup=function(){
+                if(parseInt(document.getElementById("dia").value) < 0 || parseInt(document.getElementById("dia").value) > 31){
+                        alert("El numero debe estar entre 1 y 31");
+                }
+            }
+            document.getElementById("mes").onkeyup=function(){
+                if(parseInt(document.getElementById("mes").value) < 0 || parseInt(document.getElementById("mes").value) > 12){
+                        alert("El numero debe estar entre 1 y 12");
+                }
+            }
+        </script>
+    </body>	
+</html>

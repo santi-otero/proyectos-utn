@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> JAVASCRIPT Funciones Compartidas </title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    </head>
+    <body>
+        <input type="text" id="barra" style="background-color: blueviolet; margin: 5px; text-align: right; width: 320px;"> <br />
+        <div style="background-color: aqua; width: fit-content;">
+            <button id="1" style="width: 100px; margin: 5px;">1</button>
+            <button id="2" style="width: 100px; margin: 5px;">2</button>
+            <button id="3" style="width: 100px; margin: 5px;">3</button> <br />
+            <button id="4" style="width: 100px; margin: 5px;">4</button>
+            <button id="5" style="width: 100px; margin: 5px;">5</button>
+            <button id="6" style="width: 100px; margin: 5px;">6</button> <br />
+            <button id="7" style="width: 100px; margin: 5px;">7</button>
+            <button id="8" style="width: 100px; margin: 5px;">8</button>
+            <button id="9" style="width: 100px; margin: 5px;">9</button> <br />
+            <button id="0" style="width: 100px; margin: 5px; margin-left: 119px;">0</button> <br />
+            <button id="+" style="width: 157px; height: 40px; margin: 5px;">+</button>
+            <button id="mostraracum" style="width: 157px; height: 40px; margin: 5px;"> Mostrar acumulador </button> <br />
+            <button id="vaciaracum" style="width: 157px; height: 40px; margin: 5px;"> Vaciar acumulador </button>
+            <button id="borradisplay" style="width: 157px; height: 40px; margin: 5px;"> Borrar display </button>
+        </div>
+        <script>
+            var acum = 0;
+            document.getElementById("1").onclick=function(){
+                document.getElementById("barra").value += 1;
+            }
+            document.getElementById("2").onclick=function(){
+                document.getElementById("barra").value += 2;
+            }
+            document.getElementById("3").onclick=function(){
+                document.getElementById("barra").value += 3;
+            }
+            document.getElementById("4").onclick=function(){
+                document.getElementById("barra").value += 4;
+            }
+            document.getElementById("5").onclick=function(){
+                document.getElementById("barra").value += 5;
+            }
+            document.getElementById("6").onclick=function(){
+                document.getElementById("barra").value += 6;
+            }
+            document.getElementById("7").onclick=function(){
+                document.getElementById("barra").value += 7;
+            }
+            document.getElementById("8").onclick=function(){
+                document.getElementById("barra").value += 8;
+            }
+            document.getElementById("9").onclick=function(){
+                document.getElementById("barra").value += 9;
+            }
+            document.getElementById("0").onclick=function(){
+                document.getElementById("barra").value += 0;
+            }
+            document.getElementById("+").onclick=function(){
+                acum += parseInt(document.getElementById("barra").value);
+                document.getElementById("barra").value = "";
+            }
+            document.getElementById("mostraracum").onclick=function(){
+                alert(acum);
+            }
+            document.getElementById("vaciaracum").onclick=function(){
+                acum = 0;
+            }
+            document.getElementById("borradisplay").onclick=function(){
+                document.getElementById("barra").value = "";
+            }
+        </script>
+    </body>	
+</html>
