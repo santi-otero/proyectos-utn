@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> Formulario de login </title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <link rel="stylesheet" href="./estilo.css" type="text/css">
+    </head>
+    <body>
+        <div id="VentanaLogin">
+            <header><h2>Inicio de sesion</h2></header>
+            <form id="FormLogin" action="./ingresoAlSistema.php" method="post">
+                <br/>
+                <label for="user">Nombre de usuario: <span style="color: darkslategrey;">(usuario.prueba)</span></label><br/>
+                <input type="text" name="user" id="user">
+                <br/><br/>
+                <label for="password">Contraseña: <span style="color: darkslategray;">(asd1234)</span></label><br/>
+                <input type="password" name="password" id="password"><br/>
+                <button id="ingresar">Acceder</button>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: tomato;
+}
+header{
+    height: 10%;
+    color: whitesmoke;
+    background-color: sienna;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}  
+#VentanaLogin{
+    width: 40%;
+    height: 300px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 10%;
+}
+#FormLogin{
+    text-align: center;
+    font-size: x-large;
+    font-style: oblique;
+}
+input{
+    width: 70%;
+    text-align: center;
+    height: 35px;
+    font-size: large;
+    font-style: oblique;
+    border-radius: 10px;
+}
+#ingresar{
+    width: 18%;
+    height: 25px;
+    color: whitesmoke;
+    background-color: sienna;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-top: 50px;
+    margin-left: 75%;
+}
+button:hover{
+    cursor: pointer;
+}

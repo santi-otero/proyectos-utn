@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title> Empleados BD </title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <link rel="stylesheet" href="./estilo.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            <h1>Empleados</h1>
+            <div id="ordenYbotones">
+                <label for="orden">Ordenar por: </label>
+                <input type="text" id="orden" readonly>
+                <button id="cargar">Cargar Datos</button>
+                <button id="vaciar">Vaciar Datos</button>
+                <button id="alta">Alta de Registro</button>
+            </div>
+        </header>
+        <div class="ContenidoMedio" id="ContenidoMedio">
+            <table>
+                <thead>
+                    <tr>
+                        <td campo-dato="ID"><button id="th_Empleados_ID">ID</button></td>
+                        <td campo-dato="Nombre"><button id="th_Empleados_Nombre">Nombre</button></td>
+                        <td campo-dato="Area"><button id="th_Empleados_Area">Area</button></td>
+                        <td campo-dato="Sueldo"><button id="th_Empleados_Sueldo">Sueldo</button></td>
+                        <td campo-dato="Fecha"><button id="th_Empleados_Fecha">Ingreso</button></td>
+                        <td campo-dato="Docu"><button id="th_Empleados_Doc">PDF</button></td>
+                        <td campo-dato="Modi"><button id="th_Empleados_Modi">Modi</button></td>
+                        <td campo-dato="Baja"><button id="th_Empleados_Baja">Baja</button></td>
+                    </tr>
+                    <tr>
+                        <td campo-dato="ID"><input type="text" name="f_ID" id="f_ID"></td>
+                        <td campo-dato="Nombre"><input type="text" name="f_Nombre" id="f_Nombre"></td>
+                        <td campo-dato="Area"><input type="text" name="f_Area" id="f_Area"></td>
+                        <td campo-dato="Sueldo"><input type="text" name="f_Sueldo" id="f_Sueldo"></td>
+                        <td campo-dato="Fecha"><input type="text" name="f_Fecha" id="f_Fecha"></td>
+                        <td campo-dato="Docu"></td>
+                        <td campo-dato="Modi"></td>
+                        <td campo-dato="Baja"></td>
+                    </tr>
+                </thead>          
+                <tbody id="cuerpoTabla"></tbody>  
+            </table>
+        </div>
+        <footer id="totalRegistros"></footer>
+        <div id="FormAltas">
+            <header>
+                <h3>Formulario para altas</h3>
+                <button id="cerrar1">X</button>
+            </header>
+            <form id="AltasForm" method="post" enctype="multipart/form-data">
+                <br/>
+                <label for="id">ID : </label>
+                <input type="text" name="id" id="id" required><br/><br/>
+                <label for="nombre">Nombre : </label>
+                <input type="text" name="nombre" id="nombre" required><br/><br/>
+                <label for="area">Area : </label>
+                <select name="area" name="area" id="area"> 
+                </select><br/><br/>
+                <label for="sueldo">Sueldo : </label>
+                <input type="number" name="sueldo" id="sueldo" required><br/><br/>
+                <label for="fecha">Fecha de ingreso : </label>
+                <input type="date" name="fecha" id="fecha" required><br/><br/>
+                <label for="pdf">Archivo PDF : </label>
+                <input type="file" name="pdf" id="pdf">
+            </form>
+            <br/><br/>
+            <button id="submit">Listo!</button>
+        </div>
+        <div id="FormModi">
+            <header>
+                <h3>Formulario para modificaciones</h3>
+                <button id="cerrar2">X</button>
+            </header>
+            <form id="ModiForm" method="post" enctype="multipart/form-data">
+                <br/>
+                <label for="id_modi">ID : </label>
+                <input type="text" name="id_modi" id="id_modi" readonly><br/><br/>
+                <label for="nombre_modi">Nombre : </label>
+                <input type="text" name="nombre_modi" id="nombre_modi"><br/><br/>
+                <label for="area_modi">Area : </label>
+                <select name="area_modi" name="area_modi" id="area_modi"> 
+                </select><br/><br/>
+                <label for="sueldo_modi">Sueldo : </label>
+                <input type="number" name="sueldo_modi" id="sueldo_modi"><br/><br/>
+                <label for="fecha_modi">Fecha de ingreso : </label>
+                <input type="date" name="fecha_modi" id="fecha_modi"><br/><br/>
+                <label for="pdf_modi">Archivo PDF : </label>
+                <input type="file" name="pdf_modi" id="pdf_modi">
+            </form>
+            <br/><br/>
+            <button id="submit2">Listo!</button>
+        </div>
+        <div id="VentanaPDF">
+            <header>
+                <h3>Archivo PDF</h3>
+                <button id="cerrar3">X</button>
+            </header>
+            <div id="ContenidoPDF"></div>
+        </div>
+        <div id="VentanaRespuesta">
+            <header>
+                <h3>Aviso temporizado!</h3>
+            </header>
+            <div id="ContenidoRespuesta"></div>
+        </div>
+    </body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="./logica.js"></script>
+</html>
