@@ -4,22 +4,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Componentes
+namespace _2doParcial_Otero
 {
     internal static class CInterfaz
     {
         public static uint MostrarMenu()
         {
-            Console.WriteLine("Aplicacion Componentes");
-            Console.WriteLine("Menu:");
-            Console.WriteLine("1 - Ingresar una placa de video.");
-            Console.WriteLine("2 - Ingresar un microprocesador.");
-            Console.WriteLine("3 - Mostrar datos de un componente.");
-            Console.WriteLine("4 - Mostrar los datos de todos los componentes.");
-            Console.WriteLine("5 - Eliminar un componente.");
-            Console.WriteLine("6 - Editar la frecuencia de un componente.");
-            Console.WriteLine("7 - Salir.\n");
-            return leerUInt("Su opcion: ");
+            Console.WriteLine("MENU DE ALUMNOS Y DOCENTES");
+            Console.WriteLine("**************************");
+            Console.WriteLine("1 - Ingresar un docente");
+            Console.WriteLine("2 - Ingresar un alumno");
+            Console.WriteLine("3 - Mostrar toda la lista");
+            Console.WriteLine("4 - Mostrar datos de un alumno o docente");
+            Console.WriteLine("5 - Eliminar un alumno o docente de la lista");
+            Console.WriteLine("6 - Salir");
+            return LeerOpcion("Su opcion: ");
         }
         public static void mostrarMensaje(string mensaje)
         {
@@ -40,32 +39,8 @@ namespace Componentes
             } while (!op);
             return devolucion;
         }
-
-        public static float leerFloat(string mensaje)
-        {
-            float devolucion;
-            bool op;
-            do
-            {
-                Console.WriteLine(mensaje);
-                op = float.TryParse(Console.ReadLine(), out devolucion);
-            } while (!op);
-            return devolucion;
-        }
-
-        public static int leerInt(string mensaje)
-        {
-            int devolucion;
-            bool op;
-            do
-            {
-                Console.WriteLine(mensaje);
-                op = int.TryParse(Console.ReadLine(), out devolucion);
-            } while (!op);
-            return devolucion;
-        }
-
-        public static uint leerUInt(string mensaje)
+        
+        public static uint LeerOpcion(string mensaje)
         {
             uint devolucion;
             bool op;
@@ -81,27 +56,6 @@ namespace Componentes
         {
             Console.WriteLine(mensaje);
             return Console.ReadLine();
-        }
-
-        public static string leerMarcaPV(string mensaje)
-        {
-            string devolucion;
-            do
-            {
-                Console.WriteLine(mensaje);
-                devolucion = Console.ReadLine();
-            } while (devolucion.ToUpper() != "ATI" && devolucion.ToUpper() != "NVIDIA");
-            return devolucion;
-        }
-        public static string leerMarcaMP(string mensaje)
-        {
-            string devolucion;
-            do
-            {
-                Console.WriteLine(mensaje);
-                devolucion = Console.ReadLine();
-            } while (devolucion.ToUpper() != "INTEL" && devolucion.ToUpper() != "AMD");
-            return devolucion;
         }
     }
 }

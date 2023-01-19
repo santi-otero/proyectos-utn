@@ -4,130 +4,75 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Componentes
+namespace _2doParcial_Otero
 {
     internal class CControladora
     {
-        List<CMicroProcesador> microProcesadores;
-        List<CPlacaDeVideo> placasDeVideo;
+        List<CPersona> personas;
 
         public CControladora()
         {
-            microProcesadores = new List<CMicroProcesador>();
-            placasDeVideo = new List<CPlacaDeVideo>();
+            personas = new List<CPersona>();
         }
 
-        public CMicroProcesador buscarMP(ulong numeroSerie)
+        public CPersona Buscar(ulong leg)
         {
-            CMicroProcesador aux = new CMicroProcesador();
-            aux.SetNumero(numeroSerie);
-            int indice = microProcesadores.IndexOf(aux);
-            if (indice != -1)
+            int indice = personas.IndexOf(new CPersona(leg));
+            if(indice >= 0)
             {
-                return microProcesadores[indice];
-            }
-            return null;
-        }
-        public CPlacaDeVideo buscarPV(ulong numeroSerie)
-        {
-            CPlacaDeVideo aux = new CPlacaDeVideo();
-            aux.SetNumero(numeroSerie);
-            int indice = placasDeVideo.IndexOf(aux);
-            if (indice != -1)
-            {
-                return placasDeVideo[indice];
+                return personas[indice];
             }
             return null;
         }
 
-        public bool AgregarMP(uint nucleos, ulong freq, string marca, ulong num, string descrip, float valorC, float valorMO)
+        public bool AgregarDocente(ulong leg, string dni, string nom, string ape, string cat)
         {
-            if(buscarMP(num) == null)
+            if(Buscar(leg) == null)
             {
-                microProcesadores.Add(new CMicroProcesador(nucleos, freq, marca, num, descrip, valorC, valorMO));
-                return true;
-            }
-            return false;
-        }
-        public bool AgregarPV(uint ram, ulong freq, string marca, ulong num, string descrip, float valorC, float valorMO)
-        {
-            if(buscarPV(num) == null)
-            {
-                placasDeVideo.Add(new CPlacaDeVideo(ram, freq, marca, num, descrip, valorC, valorMO));
+                personas.Add(new CDocente(cat, leg, dni, nom, ape));
                 return true;
             }
             return false;
         }
 
-        public string MostrarComponente(ulong numeroSerie)
+        public bool AgregarAlumno(ulong leg, string dni, string nom, string ape, string titulo)
         {
-            CMicroProcesador auxMP = buscarMP(numeroSerie);
-            if(auxMP != null)
+            if (Buscar(leg) == null)
             {
-                return auxMP.darDatos();
+                personas.Add(new CAlumno(titulo, leg, dni, nom, ape));
+                return true;
             }
-            else
-            {
-                CPlacaDeVideo auxPV = buscarPV(numeroSerie);
-                if(auxPV != null)
-                {
-                    return auxPV.darDatos();
-                }
-            }
-            return "Error!! Numero de serie no existente.";
+            return false;
         }
 
         public string Listar()
         {
-            string lista = "PLACAS DE VIDEO\n\n\n";
-            foreach(CPlacaDeVideo placa in placasDeVideo)
+            string lista = "MOSTRANDO LISTA DE ALUMNOS Y DOCENTES \n****************************************\n";
+            personas.Sort();
+            foreach(CPersona persona in personas)
             {
-                lista += placa.darDatos() + "\n\n*************************************************\n\n";
-            }
-            lista += "\nMICRO PROCESADORES\n\n\n";
-            foreach(CMicroProcesador micro in microProcesadores)
-            {
-                lista += micro.darDatos() + "\n\n*************************************************\n\n";
+                lista += persona.darDatos() + "\n\n****************************************\n\n";
             }
             return lista;
         }
 
-        public bool EliminarComponente(ulong numeroSerie)
+        public string mostrarPersona(ulong leg)
         {
-            CMicroProcesador auxMP = buscarMP(numeroSerie);
-            if (auxMP != null)
+            CPersona aux = Buscar(leg);
+            if(aux != null)
             {
-                microProcesadores.Remove(auxMP);
-                return true;
+                return aux.darDatos();
             }
-            else
-            {
-                CPlacaDeVideo auxPV = buscarPV(numeroSerie);
-                if (auxPV != null)
-                {
-                    placasDeVideo.Remove(auxPV);
-                    return true;
-                }
-            }
-            return false;
+            return "Ocurrio un error. :(";
         }
 
-        public bool EditarComponente(ulong numeroSerie, ulong freq)
+        public bool Eliminar(ulong leg)
         {
-            CMicroProcesador auxMP = buscarMP(numeroSerie);
-            if (auxMP != null)
+            CPersona aux = Buscar(leg);
+            if (aux != null)
             {
-                auxMP.SetFreq(freq);
+                personas.Remove(aux);
                 return true;
-            }
-            else
-            {
-                CPlacaDeVideo auxPV = buscarPV(numeroSerie);
-                if (auxPV != null)
-                {
-                    auxPV.SetFreq(freq);
-                    return true;
-                }
             }
             return false;
         }
